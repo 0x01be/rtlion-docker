@@ -12,7 +12,6 @@ RUN apk add --no-cache --virtual rtlion-runtime-dependecies \
 COPY --from=build /opt/ /opt/
 
 RUN adduser -D -u 1000 rtlion
-RUN chown -R rtlion:rtlion /opt/rtlion/
 
 ENV PYTHONPATH /usr/lib/python3.8/site-packages/:/opt/rtlion/lib/python3.8/site-packages/
 ENV PATH ${PATH}:/opt/librtlsrd/bin/:/opt/rtlion/bin/
@@ -23,3 +22,4 @@ USER rtlion
 WORKDIR /opt/rtlion/bin/
 
 CMD ["python3", "RTLion.py"]
+
