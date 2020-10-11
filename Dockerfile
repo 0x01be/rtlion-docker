@@ -1,6 +1,6 @@
-FROM 0x01be/rtlion:build as build
+FROM 0x01be/rtlion:build-arm32v6 as build
 
-FROM alpine
+FROM arm32v6/alpine
 
 RUN apk add --no-cache --virtual rtlion-runtime-dependecies \
     python3 \
