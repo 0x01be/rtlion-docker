@@ -11,7 +11,7 @@ RUN apk add --no-cache --virtual rtlion-build-dependecies \
     eudev-dev
 
 ENV RTLION_REVISION master
-RUN git clone --depth 1 --branch ${RTLION_REVISION} https://github.com/RTLion-Framework/RTLion /rtlion
+RUN git clone --depth 1 --branch ${RTLION_REVISION} https://github.com/RTLion-Framework/RTLion /opt/rtlion/bin
 
 ENV LIBRTLSRD_REVISION master
 RUN git clone --depth 1 --branch ${LIBRTLSRD_REVISION} https://github.com/radiowitness/librtlsdr.git /librtlsdr
@@ -27,8 +27,6 @@ RUN cmake \
     ..
 RUN make
 RUN make install
-
-WORKDIR /rtlion
 
 RUN pip install --prefix /opt/rtlion \
     pyrtlsdr \
