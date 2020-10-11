@@ -8,7 +8,8 @@ RUN apk add --no-cache --virtual rtlion-build-dependecies \
     py3-pip \
     py3-matplotlib \
     py3-scipy \
-    eudev-dev
+    eudev-dev \
+    libusb-dev
 
 ENV RTLION_REVISION master
 RUN git clone --depth 1 --branch ${RTLION_REVISION} https://github.com/RTLion-Framework/RTLion /opt/rtlion/bin
@@ -18,7 +19,6 @@ RUN git clone --depth 1 --branch ${LIBRTLSRD_REVISION} https://github.com/radiow
 
 RUN ln -s /usr/include/locale.h /usr/include/xlocale.h
 
-RUN apk add libusb-dev
 WORKDIR /librtlsdr/build
 RUN cmake \
     -DCMAKE_INSTALL_PREFIX=/opt/librtlsdr \
