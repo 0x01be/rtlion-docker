@@ -7,7 +7,9 @@ RUN apk add --no-cache --virtual rtlion-runtime-dependecies \
     py3-matplotlib \
     py3-scipy \
     eudev \
-    libusb
+    libusb \
+    librtlsdr-dev \
+    rtl-sdr
 
 COPY --from=build /opt/ /opt/
 
